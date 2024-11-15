@@ -48,7 +48,6 @@ export default function MapComponent() {
 
     const updateMarkers = async () => {
       const data = await fetchYearlyData(year);
-
       // 既存のマーカーを削除
       markersRef.current.forEach(marker => mapRef.current.removeLayer(marker));
       markersRef.current = [];

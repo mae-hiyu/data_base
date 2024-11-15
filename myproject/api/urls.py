@@ -1,7 +1,8 @@
-# api/urls.py
+# urls.py
 from django.urls import path
-from .views import get_population_data
+from . import views
 
 urlpatterns = [
-    path('population-data/', get_population_data, name='population_data'),
+    path('get_and_save_population_data/', views.get_and_save_population_data, name='get_and_save_population_data'),
+    path('get_population_by_year/<int:year>/', views.get_population_by_year, name='get_population_by_year'),
 ]
