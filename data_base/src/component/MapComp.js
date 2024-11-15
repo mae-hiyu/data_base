@@ -72,13 +72,12 @@ useEffect(() => {
         // const data = await preprocessData(fetch);
             const response = await fetch(`http://127.0.0.1:8000/api/get_population_by_year/${year}/`);
             const fetchdata = await response.json();
-            console.log(fetchdata.data[0].country);
             //* 既存のマーカーを削除
             markersRef.current.forEach(marker => mapRef.current.removeLayer(marker));
             markersRef.current = [];
             //* 新しいデータでマーカーを更新
             fetchdata.data.forEach(item => {
-                const countryData = item.country;
+                const country = item.country;
                 const lat = item.lat;
                 const long = item.long;
                 const population = item.population;
